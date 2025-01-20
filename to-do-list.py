@@ -1,6 +1,8 @@
+runInitial = True
+
 # Función de opciones del menu
 def showOptions():
-    print("\nSELECT AN OPTION:\n")
+    print("\nSELECT AN OPTION: ")
     print("1. Create a new task")
     print("2. Mark your tasks")
     print("3. Delete a task")
@@ -8,9 +10,11 @@ def showOptions():
 
 # Función principal del programa
 def main():
+    global runInitial
     print(".: WELCOME TO A TO DO LIST IN PYTHON :.")
-    while True:
-        option = int(input("Enter your number option: "))
+    while runInitial:
+        showOptions()
+        option = int(input("\nEnter your number option: "))
         match option:
             case 1: 
                 print("CREATE A NEW TASK: ")
@@ -21,7 +25,7 @@ def main():
             case 4:
                 print("LEAVING THE PROGRAM...")
             case _:
-                print("Invalid option")
+                print("Invalid option. Try again...")
 
 if __name__ == "__main__":
     main()
