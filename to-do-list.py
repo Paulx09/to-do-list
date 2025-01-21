@@ -35,10 +35,28 @@ def markTask():
         os.system("cls")
         print("\n*** Mark your task ***")
         tasks_list_id = int(input("Enter the task number as completed: "))
-        tasks_list[tasks_list_id - 1] = tasks_list[tasks_list_id - 1] + " ✔"
-        showTasks()
-    else: 
+        if tasks_list_id > len(tasks_list):
+            print("Invalid task number. Try again...")
+        else:
+            tasks_list[tasks_list_id - 1] = tasks_list[tasks_list_id - 1] + " ✔"
+            showTasks()
+    else:
         print("There are no tasks to mark.")
+
+# Función para eliminar las tareas
+def deleteTask():
+    global tasks_list
+    if tasks_list != []:
+        os.system("cls")
+        print("\n*** Delete a task ***")
+        tasks_list_id = int(input("Enter the task number to delete: "))
+        if tasks_list_id > len(tasks_list):
+            print("Invalid task number. Try again...")
+        else:
+            del tasks_list[tasks_list_id - 1]
+            showTasks()
+    else: 
+        print("There are no tasks to delete.")
 
 # Función principal del programa
 def main():
@@ -54,9 +72,10 @@ def main():
             case 2:
                 markTask()
             case 3:
-                print("DELETE A TASK: ")
+                deleteTask()
             case 4:
                 print("LEAVING THE PROGRAM...")
+                runInitial = False
             case _:
                 print("Invalid option. Try again...")
 
