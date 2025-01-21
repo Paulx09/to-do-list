@@ -4,10 +4,10 @@ tasks_list = []
 # Función para mostrar la lista de tareas
 def showTasks():
     global tasks_list
-    print("\n*** Show Tasks ***")
+    print("\n****** Your Tasks ******")
     for item in tasks_list:
         print(f"{tasks_list.index(item) + 1}. {item}")
-    print("\n")
+    print("****** Your Tasks ******\n")
 
 # Función de opciones del menu
 def showOptions():
@@ -16,6 +16,14 @@ def showOptions():
     print("2. Mark your tasks")
     print("3. Delete a task")
     print("4. Exit")
+
+#Función para crear las tareas
+def createTask():
+    global tasks_list
+    print("\n*** Create a new task ***")
+    task = input("Enter your new task: ")
+    tasks_list.append(task)
+    showTasks()
 
 # Función principal del programa
 def main():
@@ -27,7 +35,7 @@ def main():
         
         match option:
             case 1: 
-                print("CREATE A NEW TASK: ")
+                createTask()
             case 2:
                 print("MARK A TASK: ")
             case 3:
