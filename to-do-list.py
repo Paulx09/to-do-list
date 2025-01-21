@@ -1,4 +1,13 @@
 runInitial = True
+tasks_list = []
+
+# Función para mostrar la lista de tareas
+def showTasks():
+    global tasks_list
+    print("\n*** Show Tasks ***")
+    for item in tasks_list:
+        print(f"{tasks_list.index(item) + 1}. {item}")
+    print("\n")
 
 # Función de opciones del menu
 def showOptions():
@@ -15,6 +24,7 @@ def main():
     while runInitial:
         showOptions()
         option = int(input("\nEnter your number option: "))
+        
         match option:
             case 1: 
                 print("CREATE A NEW TASK: ")
