@@ -1,3 +1,5 @@
+import os
+
 runInitial = True
 tasks_list = []
 
@@ -19,11 +21,24 @@ def showOptions():
 
 #Función para crear las tareas
 def createTask():
+    os.system("cls")
     global tasks_list
     print("\n*** Create a new task ***")
     task = input("Enter your new task: ")
     tasks_list.append(task)
     showTasks()
+
+# Función para marcar las tareas
+def markTask():
+    global tasks_list
+    if tasks_list != []:
+        os.system("cls")
+        print("\n*** Mark your task ***")
+        tasks_list_id = int(input("Enter the task number as completed: "))
+        tasks_list[tasks_list_id - 1] = tasks_list[tasks_list_id - 1] + " ✔"
+        showTasks()
+    else: 
+        print("There are no tasks to mark.")
 
 # Función principal del programa
 def main():
@@ -37,7 +52,7 @@ def main():
             case 1: 
                 createTask()
             case 2:
-                print("MARK A TASK: ")
+                markTask()
             case 3:
                 print("DELETE A TASK: ")
             case 4:
